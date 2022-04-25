@@ -1,6 +1,8 @@
 <template>
-  <h1>Hello Vue3!</h1>
-  <p>My name is {{ name }}. I work with {{ occupation }}.</p>
+  <div>
+    <h1>Hello Vue3!</h1>
+    <p>My name is {{ name }}. I work with {{ occupation }}.</p>
+  </div>
 </template>
 
 <script>
