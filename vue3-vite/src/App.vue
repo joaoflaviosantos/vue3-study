@@ -1,5 +1,6 @@
 <template>
   <FirstComponent />
+  <p>The main App data is: {{ testing }}</p>
 </template>
 
 <script>
@@ -9,6 +10,11 @@ export default {
   name: "App",
   components: {
     FirstComponent,
+  },
+  data() {
+    return {
+      testing: "Test",
+    };
   },
 };
 </script>
