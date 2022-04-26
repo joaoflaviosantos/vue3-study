@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>This is a {{ name }} description.</h2>
+    <h2>{{ name }}</h2>
     <InfoComponent />
     <FormComponent />
   </div>
@@ -18,7 +18,7 @@ export default {
   },
   data() {
     return {
-      name: "Matheus",
+      name: "Binded Description Title",
     };
   },
 };

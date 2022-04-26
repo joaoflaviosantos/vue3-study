@@ -16,11 +16,21 @@ export default {
     setTimeout(() => {
       this.name = "John";
     }, 1000);
+    this.createdlifeCycle();
   },
   mounted() {
     setTimeout(() => {
-      this.name = "Alice";
+      this.name = "John F.";
     }, 2000);
+    this.mountedlifeCycle();
+  },
+  methods: {
+    createdlifeCycle() {
+      console.log("Created!");
+    },
+    mountedlifeCycle() {
+      console.log("Mounted!");
+    },
   },
 };
 </script>

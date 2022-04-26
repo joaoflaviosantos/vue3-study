@@ -8,6 +8,10 @@
       <li>Python</li>
       <li>PHP</li>
     </ul>
+    <div>
+      <!--<button v-on:click="showEmail">Mostrar e-mail</button>-->
+      <button @click="showEmail">{{ button_text }}</button>
+    </div>
     <p v-show="show_email">Send a message to: {{ email }}</p>
     <p>To access my portfolio <a v-bind:href="my_link">click here</a>.</p>
     <PictureComponent />
@@ -18,16 +22,27 @@
 import PictureComponent from "./PictureComponent.vue";
 export default {
   name: "InfoComponent",
+  components: {
+    PictureComponent,
+  },
   data() {
     return {
       working: false,
-      show_email: true,
+      show_email: false,
+      button_text: "Show email",
       email: "jhon@gmail.com",
       my_link: "https://br.linkedin.com/in/joaoflaviosantos",
     };
   },
-  components: {
-    PictureComponent,
+  methods: {
+    showEmail() {
+      this.show_email = !this.show_email;
+      if (!this.show_email) {
+        this.button_text = "Show email";
+      } else {
+        this.button_text = "Hide email";
+      }
+    },
   },
 };
 </script>
