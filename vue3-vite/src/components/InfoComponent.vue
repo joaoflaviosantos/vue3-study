@@ -13,7 +13,9 @@
       <button @click="showEmail">{{ button_text }}</button>
     </div>
     <p v-show="show_email">Send a message to: {{ email }}</p>
-    <p>To access my portfolio <a v-bind:href="my_link">click here</a>.</p>
+    <p class="test">
+      To access my portfolio <a v-bind:href="my_link">click here</a>.
+    </p>
     <PictureComponent />
   </div>
 </template>
@@ -31,7 +33,7 @@ export default {
       show_email: false,
       button_text: "Show email",
       email: "jhon@gmail.com",
-      my_link: "https://br.linkedin.com/in/joaoflaviosantos",
+      my_link: "https://github.com/joaoflaviosantos",
     };
   },
   methods: {
@@ -46,3 +48,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.parent-paragraph {
+  color: #51b38a;
+}
+</style>
