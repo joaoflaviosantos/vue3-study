@@ -41,7 +41,7 @@ export default {
       working: false,
       show_email: false,
       button_text: "Show email",
-      email: "jhon@gmail.com",
+      email: "john@gmail.com",
       my_link: "https://github.com/joaoflaviosantos",
       backend_technologies: ["Javascript", "Python", "PHP"],
       frontend_technologies: [
