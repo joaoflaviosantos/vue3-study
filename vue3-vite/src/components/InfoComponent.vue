@@ -2,11 +2,20 @@
   <div>
     <p v-if="working">I'm working at this moment.</p>
     <p v-else>I'm looking for new opportunities.</p>
-    <p>I'm using this technologies:</p>
+    <p>I'm using this back-end technologies:</p>
     <ul>
-      <li>Javascript</li>
-      <li>Python</li>
-      <li>PHP</li>
+      <li
+        v-for="(technology, index) in backend_technologies"
+        v-bind:key="index"
+      >
+        {{ technology }}
+      </li>
+    </ul>
+    <p>I'm using this front-end technologies:</p>
+    <ul>
+      <li v-for="technology in frontend_technologies" :key="technology.id">
+        {{ technology.language }}
+      </li>
     </ul>
     <div>
       <!--<button v-on:click="showEmail">Mostrar e-mail</button>-->
@@ -34,6 +43,12 @@ export default {
       button_text: "Show email",
       email: "jhon@gmail.com",
       my_link: "https://github.com/joaoflaviosantos",
+      backend_technologies: ["Javascript", "Python", "PHP"],
+      frontend_technologies: [
+        { id: 1, language: "Vue" },
+        { id: 2, language: "Quasar Framework" },
+        { id: 3, language: "Bootstrap Vue" },
+      ],
     };
   },
   methods: {
