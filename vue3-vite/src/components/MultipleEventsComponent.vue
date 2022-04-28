@@ -18,9 +18,11 @@ export default {
     };
   },
   methods: {
+    // eslint-disable-next-line no-unused-vars
     first(txt, e) {
       this.multiple_events = this.txt1;
     },
+    // eslint-disable-next-line no-unused-vars
     second(txt, e) {
       setTimeout(() => (this.multiple_events = this.txt2), 1000);
     },
