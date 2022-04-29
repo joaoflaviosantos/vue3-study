@@ -10,6 +10,9 @@
       <li>
         <h3><a href="#">Contact</a></h3>
       </li>
+      <li>
+        <h3><a v-if="is_authenticated" href="#">My Account</a></h3>
+      </li>
     </ul>
   </div>
 </template>
@@ -17,6 +20,7 @@
 <script>
 export default {
   name: "HeaderComponent",
+  props: ["is_authenticated"],
 };
 </script>
 

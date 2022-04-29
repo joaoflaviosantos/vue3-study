@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- <p>{{ compEmail }}</p> -->
     <p v-if="working">I'm working at this moment.</p>
     <p v-else>I'm looking for new opportunities.</p>
     <p>I'm using this back-end technologies:</p>
@@ -36,12 +37,17 @@ export default {
   components: {
     PictureComponent,
   },
+  props: {
+    //compEmail: String,
+    email: String,
+    working: Boolean,
+  },
   data() {
     return {
-      working: false,
+      //working: false,
       show_email: false,
       button_text: "Show email",
-      email: "john@gmail.com",
+      //email: "john@gmail.com",
       my_link: "https://github.com/joaoflaviosantos",
       backend_technologies: ["Javascript", "Python", "PHP"],
       frontend_technologies: [

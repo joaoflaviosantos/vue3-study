@@ -1,5 +1,5 @@
 <template>
-  <HeaderComponent />
+  <HeaderComponent :is_authenticated="true" />
   <div style="margin-inline: 50px">
     <FirstComponent />
     <p class="parent-paragraph">The main App data is: {{ testing }}</p>

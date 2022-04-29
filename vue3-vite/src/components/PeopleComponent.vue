@@ -1,7 +1,8 @@
 <template>
   <div>
     <h2>{{ name }}</h2>
-    <InfoComponent />
+    <!--<InfoComponent compEmail="john.pro@gmail.com" />-->
+    <InfoComponent :email="email" :working="false" />
     <FormComponent />
   </div>
 </template>
@@ -19,6 +20,7 @@ export default {
   data() {
     return {
       name: "Binded Description Title",
+      email: "john.pro@gmail.com",
     };
   },
 };
