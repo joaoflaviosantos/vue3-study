@@ -17,50 +17,56 @@
           <label for="bread">Choose bread:</label>
           <select name="bread" id="bread" v-model="bread">
             <option value="">--Select Option--</option>
-            <option value="integral">integral</option>
+            <option
+              v-for="bread in bked_breads"
+              :key="bread.id"
+              :value="bread.tipo"
+            >
+              {{ bread.tipo }}
+            </option>
           </select>
         </div>
         <div class="input-container">
           <label for="meat">Choose meat:</label>
           <select name="meat" id="meat" v-model="meat">
             <option value="">--Select Option--</option>
-            <option value="integral">integral</option>
+            <option
+              v-for="meat in bked_meats"
+              :key="meat.id"
+              :value="meat.tipo"
+            >
+              {{ meat.tipo }}
+            </option>
           </select>
         </div>
         <div id="optionals-container" class="input-container">
           <label id="optionals-title" for="optionals">Choose optionals:</label>
-          <div class="checkbox-container">
+          <div
+            class="checkbox-container"
+            v-for="optional in bked_optionals"
+            :key="optional.id"
+          >
             <input
+              :value="optional.tipo"
               type="checkbox"
               name="optionals"
               v-model="optionals"
-              value="salame"
             />
-            <span>Salame</span>
-          </div>
-          <div class="checkbox-container">
-            <input
-              type="checkbox"
-              name="optionals"
-              v-model="optionals"
-              value="salame"
-            />
-            <span>Salame</span>
-          </div>
-          <div class="checkbox-container">
-            <input
-              type="checkbox"
-              name="optionals"
-              v-model="optionals"
-              value="salame"
-            />
-            <span>Salame</span>
+            <span>{{ optional.tipo }}</span>
           </div>
         </div>
         <div class="input-container">
           <input type="submit" class="submit-btn" value="Send my order" />
         </div>
       </form>
+      <!--<div class="input-container">
+        <input
+          type="submit"
+          @click="getIngredients"
+          class="submit-btn"
+          value="Send my order"
+        />
+      </div>-->
     </div>
   </div>
 </template>
@@ -70,10 +76,29 @@ export default {
   name: "BurgerFormComponent",
   data() {
     return {
-      name: "",
-      bread: "",
-      meat: "",
+      bked_breads: null,
+      bked_meats: null,
+      bked_optionals: null,
+      name: null,
+      bread: null,
+      meat: null,
+      optionals: [],
+      status: "Requested",
+      message: null,
     };
+  },
+  methods: {
+    async getIngredients() {
+      const req = await fetch("http://localhost:3000/ingredientes");
+      const data = await req.json();
+      //console.log(data);
+      this.bked_breads = data.paes;
+      this.bked_meats = data.carnes;
+      this.bked_optionals = data.opcionais;
+    },
+  },
+  mounted() {
+    this.getIngredients();
   },
 };
 </script>
