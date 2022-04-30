@@ -1,18 +1,18 @@
 <template>
   <NavbarComponent :logo="logo_src" :alt="app_name" />
   <router-view> </router-view>
-  <FooterComponent />
+  <!--<FooterComponent />-->
 </template>
 
 <script>
 import NavbarComponent from "./components/NavbarComponent.vue";
-import FooterComponent from "./components/FooterComponent.vue";
+//import FooterComponent from "./components/FooterComponent.vue";
 
 export default {
   name: "App",
   components: {
     NavbarComponent,
-    FooterComponent,
+    //FooterComponent,
   },
   data() {
     return {
