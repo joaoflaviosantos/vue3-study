@@ -4,7 +4,7 @@
     <FirstComponent />
     <p class="parent-paragraph">The main App data is: {{ testing }}</p>
     <LifeCycle />
-    <PeopleComponent />
+    <PeopleComponent /> 
   </div>
 </template>
 
