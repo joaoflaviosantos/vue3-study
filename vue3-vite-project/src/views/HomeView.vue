@@ -1,12 +1,19 @@
 <template>
+  <BannerComponent />
   <div class="main-container">
-    <h1>Home</h1>
+    <h1>Make your hamburger:</h1>
+    <p>Form</p>
   </div>
 </template>
 
-<script></script>
+<script>
+import BannerComponent from "../components/BannerComponent.vue";
 
-<style>
+export default {
+  components: {
+    BannerComponent,
+  },
+};
+</script>
 
-</style>
-
+<style></style>
