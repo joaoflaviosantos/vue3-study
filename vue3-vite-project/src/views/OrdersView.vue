@@ -1,11 +1,17 @@
 <template>
   <div class="main-container">
-    <h1>This is an about page test</h1>
+    <h1>Manage Orders</h1>
+    <DashboardComponent />
   </div>
 </template>
 
-<script></script>
+<script>
+import DashboardComponent from "../components/DashboardComponent.vue";
+export default {
+  components: {
+    DashboardComponent,
+  },
+};
+</script>
 
-<style>
-
-</style>
+<style></style>

@@ -253,6 +253,18 @@
       ],
       "status": "Requested",
       "id": 16
+    },
+    {
+      "name": null,
+      "bread": null,
+      "meat": null,
+      "optionals": [
+        "Bacon",
+        "Salame",
+        "Cebola roxa"
+      ],
+      "status": "Requested",
+      "id": 17
     }
   ]
 }
