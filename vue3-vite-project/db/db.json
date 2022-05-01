@@ -70,138 +70,18 @@
   "status": [
     {
       "id": 1,
-      "tipo": "Solicitado"
+      "tipo": "Requested"
     },
     {
       "id": 2,
-      "tipo": "Em produção"
+      "tipo": "In production"
     },
     {
       "id": 3,
-      "tipo": "Finalizado"
+      "tipo": "Finished"
     }
   ],
-  "burgers": [
-    {
-      "name": "dds",
-      "bread": "3 Queijos",
-      "meat": "Alcatra",
-      "optionals": [
-        "Bacon",
-        "Tomate"
-      ],
-      "status": "Requested",
-      "id": 1
-    },
-    {
-      "name": "ddfdfd",
-      "bread": "Italiano Branco",
-      "meat": "Maminha",
-      "optionals": [
-        "Cheddar",
-        "Bacon"
-      ],
-      "status": "Requested",
-      "id": 2
-    },
-    {
-      "name": "Teste",
-      "bread": "3 Queijos",
-      "meat": "Alcatra",
-      "optionals": [
-        "Salame",
-        "Pepino"
-      ],
-      "status": "Requested",
-      "id": 3
-    },
-    {
-      "name": "wewewew",
-      "bread": "Italiano Branco",
-      "meat": "Picanha",
-      "optionals": [
-        "Bacon",
-        "Cheddar"
-      ],
-      "status": "Requested",
-      "id": 4
-    },
-    {
-      "name": "teste",
-      "bread": "3 Queijos",
-      "meat": "Alcatra",
-      "optionals": [
-        "Bacon",
-        "Cebola roxa"
-      ],
-      "status": "Requested",
-      "id": 5
-    },
-    {
-      "name": "teste mensagem",
-      "bread": "Italiano Branco",
-      "meat": "Picanha",
-      "optionals": [
-        "Bacon",
-        "Cheddar"
-      ],
-      "status": "Requested",
-      "id": 6
-    },
-    {
-      "name": "teste",
-      "bread": "Parmesão e Orégano",
-      "meat": "Alcatra",
-      "optionals": [
-        "Bacon",
-        "Cheddar",
-        "Pepino"
-      ],
-      "status": "Requested",
-      "id": 7
-    },
-    {
-      "name": "Teste remoção mensagem",
-      "bread": "Parmesão e Orégano",
-      "meat": "Alcatra",
-      "optionals": [
-        "Bacon",
-        "Cheddar",
-        "Tomate"
-      ],
-      "status": "Requested",
-      "id": 8
-    },
-    {
-      "name": "teste saida mensagem",
-      "bread": "3 Queijos",
-      "meat": "Alcatra",
-      "optionals": [
-        "Tomate"
-      ],
-      "status": "Requested",
-      "id": 9
-    },
-    {
-      "name": "tdfwefe",
-      "bread": "Integral",
-      "meat": "Maminha",
-      "optionals": [
-        "Pepino"
-      ],
-      "status": "Requested",
-      "id": 10
-    },
-    {
-      "name": "ffsggrw",
-      "bread": "3 Queijos",
-      "meat": "Picanha",
-      "optionals": [
-        "Bacon"
-      ],
-      "status": "Requested",
-      "id": 11
-    },
+  "orders": [
     {
       "name": "Joaquina",
       "bread": "Italiano Branco",
@@ -210,61 +90,28 @@
         "Tomate"
       ],
       "status": "Requested",
-      "id": 12
+      "id": 1
     },
     {
-      "name": "rrgefwrgrgr",
-      "bread": "3 Queijos",
+      "name": "João",
+      "bread": "Italiano Branco",
       "meat": "Maminha",
       "optionals": [
-        "Cheddar"
-      ],
-      "status": "Requested",
-      "id": 13
-    },
-    {
-      "name": "fefefe",
-      "bread": "3 Queijos",
-      "meat": "Alcatra",
-      "optionals": [
-        "Pepino"
-      ],
-      "status": "Requested",
-      "id": 14
-    },
-    {
-      "name": "teste",
-      "bread": "Parmesão e Orégano",
-      "meat": "Maminha",
-      "optionals": [
-        "Bacon"
-      ],
-      "status": "Requested",
-      "id": 15
-    },
-    {
-      "name": "Teste mensagem",
-      "bread": "Parmesão e Orégano",
-      "meat": "Picanha",
-      "optionals": [
-        "Bacon",
-        "Cheddar",
+        "Salame",
         "Tomate"
       ],
       "status": "Requested",
-      "id": 16
+      "id": 2
     },
     {
-      "name": null,
-      "bread": null,
-      "meat": null,
+      "name": "Alice de Almeida Santos",
+      "bread": "3 Queijos",
+      "meat": "Picanha",
       "optionals": [
-        "Bacon",
-        "Salame",
-        "Cebola roxa"
+        "Tomate"
       ],
       "status": "Requested",
-      "id": 17
+      "id": 3
     }
   ]
 }

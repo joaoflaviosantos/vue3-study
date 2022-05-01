@@ -1,4 +1,7 @@
 <template>
+  <div>
+    <MessageComponent :msg="msg" v-show="msg" />
+  </div>
   <div id="burguer-table">
     <div>
       <div id="burguer-table-heading">
@@ -11,42 +14,33 @@
       </div>
     </div>
     <div id="burguer-table-rows">
-      <div class="burguer-table-row">
-        <div class="order-number">1</div>
-        <div>TEste</div>
-        <div>TEstee</div>
-        <div>TEsteee</div>
+      <div v-for="order in orders" :key="order.id" class="burguer-table-row">
+        <div class="order-number">{{ order.id }}</div>
+        <div>{{ order.name }}</div>
+        <div>{{ order.bread }}</div>
+        <div>{{ order.meat }}</div>
         <div>
           <ul>
-            <li>Salame</li>
-            <li>Queijo</li>
+            <li v-for="(optional, index) in order.optionals" :key="index">
+              {{ optional }}
+            </li>
           </ul>
         </div>
         <div>
           <select name="status" class="status">
-            <option value="">--Select Option--</option>
+            <!--<option value="">--Select Option--</option>-->
+            <option
+              v-for="status in bked_status"
+              :key="status.id"
+              value="status.tipo"
+              :selected="order.status == status.tipo"
+            >
+              {{ status.tipo }}
+            </option>
           </select>
-          <button class="delete-btn">Delete</button>
-        </div>
-      </div>
-    </div>
-    <div id="burguer-table-rows">
-      <div class="burguer-table-row">
-        <div class="order-number">1</div>
-        <div>TEste</div>
-        <div>TEstee</div>
-        <div>TEsteee</div>
-        <div>
-          <ul>
-            <li>Salame</li>
-            <li>Queijo</li>
-          </ul>
-        </div>
-        <div>
-          <select name="status" class="status">
-            <option value="">--Select Option--</option>
-          </select>
-          <button class="delete-btn">Delete</button>
+          <button class="delete-btn" @click="deleteOrder(order.id)">
+            Delete
+          </button>
         </div>
       </div>
     </div>
@@ -54,12 +48,57 @@
 </template>
 
 <script>
+import MessageComponent from "./MessageComponent.vue";
 export default {
   name: "DashboardComponent",
   data() {
     return {
       orders: null,
+      order_id: null,
+      bked_status: [],
+      msg: "",
     };
+  },
+  methods: {
+    async getStatus() {
+      const req = await fetch("http://localhost:3000/status");
+      const data = await req.json();
+      //console.log(data);
+      this.bked_status = data;
+    },
+    async getOrders() {
+      const req = await fetch("http://localhost:3000/orders");
+      const data = await req.json();
+      //console.log(data);
+      this.orders = data;
+      // resgatar os status
+    },
+    async deleteOrder(id) {
+      //console.log(id);
+      const req = await fetch(`http://localhost:3000/orders/${id}`, {
+        method: "DELETE",
+      });
+      const res = await req.clone();
+
+      //console.log(res);
+      if (res.status == 200) {
+        //this.getOrders();
+        this.orders.splice(this.orders.indexOf(id), 1);
+        this.msg = `Order ID ${id} deleted successfully!`;
+        setTimeout(() => (this.msg = ""), 3000);
+      }
+    },
+    remove(id) {
+      // this.todos.splice(index, 1)
+      this.$delete(this.orders, id);
+    },
+  },
+  mounted() {
+    this.getStatus();
+    this.getOrders();
+  },
+  components: {
+    MessageComponent,
   },
 };
 </script>

@@ -16,7 +16,7 @@
         <div class="input-container">
           <label for="bread">Choose bread:</label>
           <select name="bread" id="bread" v-model="bread">
-            <option value="">--Select Option--</option>
+            <option value="std">--Select Option--</option>
             <option
               v-for="bread in bked_breads"
               :key="bread.id"
@@ -29,7 +29,7 @@
         <div class="input-container">
           <label for="meat">Choose meat:</label>
           <select name="meat" id="meat" v-model="meat">
-            <option value="">--Select Option--</option>
+            <option value="std" selected>--Select Option--</option>
             <option
               v-for="meat in bked_meats"
               :key="meat.id"
@@ -82,8 +82,8 @@ export default {
       bked_meats: null,
       bked_optionals: null,
       name: null,
-      bread: null,
-      meat: null,
+      bread: "std",
+      meat: "std",
       optionals: [],
       message: null,
       msg: "",
@@ -110,7 +110,7 @@ export default {
       const dataJson = JSON.stringify(data);
       //console.log(data);
       //console.log(dataJson);
-      const req = await fetch("http://localhost:3000/burgers", {
+      const req = await fetch("http://localhost:3000/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: dataJson,

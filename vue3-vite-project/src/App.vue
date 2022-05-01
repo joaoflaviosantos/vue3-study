@@ -1,18 +1,18 @@
 <template>
   <NavbarComponent :logo="logo_src" :alt="app_name" />
-  <router-view> </router-view>
-  <!--<FooterComponent />-->
+  <router-view></router-view>
+  <FooterComponent />
 </template>
 
 <script>
 import NavbarComponent from "./components/NavbarComponent.vue";
-//import FooterComponent from "./components/FooterComponent.vue";
+import FooterComponent from "./components/FooterComponent.vue";
 
 export default {
   name: "App",
   components: {
     NavbarComponent,
-    //FooterComponent,
+    FooterComponent,
   },
   data() {
     return {
@@ -32,7 +32,7 @@ export default {
 }
 
 .main-container {
-  margin: 50px;
+  margin: 50px 50px 100px 50px;
   min-height: 250px;
 }
 
