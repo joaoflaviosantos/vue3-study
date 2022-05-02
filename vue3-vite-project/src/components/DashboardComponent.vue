@@ -10,7 +10,7 @@
         <div>Bread:</div>
         <div>Meat:</div>
         <div>Optionals:</div>
-        <div>Actions:</div>
+        <div>Current step:</div>
       </div>
     </div>
     <div id="burguer-table-rows">
@@ -27,12 +27,16 @@
           </ul>
         </div>
         <div>
-          <select name="status" class="status">
+          <select
+            name="status"
+            class="status"
+            @change="updateCurrentOrderStep($event, order.id)"
+          >
             <!--<option value="">--Select Option--</option>-->
             <option
               v-for="status in bked_status"
               :key="status.id"
-              value="status.tipo"
+              :value="status.tipo"
               :selected="order.status == status.tipo"
             >
               {{ status.tipo }}
@@ -78,19 +82,42 @@ export default {
       const req = await fetch(`http://localhost:3000/orders/${id}`, {
         method: "DELETE",
       });
-      const res = await req.clone();
+      const res_clone = await req.clone();
+      //const res_json = await req.json();
 
-      //console.log(res);
-      if (res.status == 200) {
+      //console.log(res_clone);
+      //console.log(res_json);
+      if (res_clone.status == 200) {
         //this.getOrders();
-        this.orders.splice(this.orders.indexOf(id), 1);
-        this.msg = `Order ID ${id} deleted successfully!`;
-        setTimeout(() => (this.msg = ""), 3000);
+        const updated_orders = this.orders.filter((item) => item.id !== id);
+        this.orders = updated_orders;
+        this.msg = `Order ${id}: deleted successfully!`;
+        setTimeout(() => (this.msg = ""), 2000);
       }
     },
-    remove(id) {
-      // this.todos.splice(index, 1)
-      this.$delete(this.orders, id);
+    async updateCurrentOrderStep(event, id) {
+      const option = event.target.value;
+      const dataJson = JSON.stringify({ status: option });
+      //console.log(id);
+      //console.log(option);
+      //console.log(dataJson);
+      const req = await fetch(`http://localhost:3000/orders/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: dataJson,
+      });
+      const res_clone = await req.clone();
+      const res_json = await req.json();
+
+      //console.log(res_clone);
+      //console.log(res_json);
+      if (res_clone.status == 200) {
+        //console.log(res);
+        //console.log(this.msg);
+        this.msg = `Order ${res_json.id}: status updated to ${res_json.status}!`;
+        //console.log(this.msg);
+        setTimeout(() => (this.msg = ""), 2000);
+      }
     },
   },
   mounted() {

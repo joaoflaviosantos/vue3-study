@@ -120,7 +120,7 @@ export default {
       //console.log(res);
       this.msg = `Order ID ${res.id} sended successfully!`;
 
-      setTimeout(() => (this.msg = ""), 3000);
+      setTimeout(() => (this.msg = ""), 2000);
 
       this.name = "";
       this.bread = "";

@@ -83,16 +83,6 @@
   ],
   "orders": [
     {
-      "name": "Joaquina",
-      "bread": "Italiano Branco",
-      "meat": "Veggie burger",
-      "optionals": [
-        "Tomate"
-      ],
-      "status": "Requested",
-      "id": 1
-    },
-    {
       "name": "João",
       "bread": "Italiano Branco",
       "meat": "Maminha",
@@ -100,18 +90,31 @@
         "Salame",
         "Tomate"
       ],
-      "status": "Requested",
+      "status": "In production",
       "id": 2
     },
     {
-      "name": "Alice de Almeida Santos",
-      "bread": "3 Queijos",
+      "name": "Jack Phills",
+      "bread": "Italiano Branco",
       "meat": "Picanha",
       "optionals": [
+        "Bacon",
+        "Salame",
+        "Tomate"
+      ],
+      "status": "Finished",
+      "id": 3
+    },
+    {
+      "name": "Jason",
+      "bread": "Italiano Branco",
+      "meat": "Picanha",
+      "optionals": [
+        "Cheddar",
         "Tomate"
       ],
       "status": "Requested",
-      "id": 3
+      "id": 7
     }
   ]
 }
